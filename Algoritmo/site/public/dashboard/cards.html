@@ -2,11 +2,11 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/imgs/Logo.svg" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Tempo Real</title>
+    <title>LotusTech | Sessões</title>
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboards.css">
@@ -25,14 +25,14 @@
 
         <div class="header-left dash-header">
 
-            <h1>AquaTech</h1>
+            <h1>LotusTech</h1>
 
             <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                <h3>Bem vindo!</h3>
             </div>
 
             <div class="btn-nav">
-                <h3>Aquários</h3>
+                <h3>Sessões</h3>
             </div>
 
             <div class="btn-nav-white">
@@ -43,7 +43,7 @@
 
             <div class="btn-nav-white">
                 <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
+                    <h3>Perfil</h3>
                 </a>
             </div>
 
@@ -57,30 +57,34 @@
             <div id="alerta">
             </div>
             <div class="regua">
-                <div class="item-regua perigo-frio">
-                    <h4>Perigo</h4>
-                    <h2>&lt;=5°C</h2>
-                </div>
-                <div class="item-regua alerta-frio">
-                    <h4>Alerta</h4>
-                    <h2>&lt;=10°C</h2>
-                </div>
-                <div class="item-regua ideal">
-                    <h4>Ideal</h4>
-                    <h2>20°C</h2>
-                </div>
-                <div class="item-regua alerta-quente">
-                    <h4>Alerta</h4>
-                    <h2>&gt;=22°C</h2>
-                </div>
-                <div class="item-regua perigo-quente">
-                    <h4>Perigo</h4>
-                    <h2>&gt;=23°C</h2>
-                </div>
+             <h1>Meditação guiada</h1>
             </div>
 
             <div class="cards" id="cardAquarios">
-
+                <div class="video">
+                    <iframe width="520" height="292" src="https://www.youtube.com/embed/Z1y3Alas8Zs" title="MEDITAÇÃO PARA ANSIEDADE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <div class="infoSessao">
+                        <div class="tituloSessao">Ansiedade</div>
+                        Às vezes, tudo o que precisamos é desacelerar, respirar fundo e reconectar com o momento presente. Esta meditação é especialmente elaborada para ajudar a liberar a tensão acumulada, proporcionando um refúgio de paz no turbilhão da vida.
+                    </div>
+                </div>
+                <div class="video">
+                    <iframe width="520" height="292" src="https://www.youtube.com/embed/dfi11cxr1NM" title="Meditação para Dormir | Relaxamento Profundo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <div class="infoSessao">
+                        <div class="tituloSessao">Insonia</div>
+                        Esta meditação guiada é uma jornada suave para acalmar a mente hiperativa, liberar as tensões acumuladas e preparar seu corpo e mente para um sono reparador. Permita-se relaxar profundamente enquanto nossa instrutora especializada orienta você por um caminho de tranquilidade.
+                    </div>
+                </div>
+                <div class="video">
+                    <iframe width="520" height="292" src="https://www.youtube.com/embed/3p9U3nH5j1o" title="Meditação Guiada para Concentração e Foco" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <div class="infoSessao">
+                        <div class="tituloSessao">Concentração</div>
+                        Esta experiência de meditação é um convite para desconectar do caos externo e mergulhar em sua própria calma interna. Sua guia especializada irá conduzi-lo por técnicas mindfulness, respiração consciente e visualizações que nutrem a concentração e estimulam a paz interior.
+                    </div>
+                </div>
+                <div class="video">
+                    <iframe width="520" height="292" src="https://www.youtube.com/embed/eJ2prqWQNzI" title="Meditação Rápida para REDUZIR ESTRESSE, ANSIEDADE e MEDO (aliviar tensões EM MINUTOS)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
             </div>
 
         </div>
@@ -90,6 +94,8 @@
 </body>
 
 <script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
 
     function exibirAquarios() {
         JSON.parse(sessionStorage.AQUARIOS).forEach(item => {

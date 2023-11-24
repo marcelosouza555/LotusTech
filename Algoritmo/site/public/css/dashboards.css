@@ -3,6 +3,7 @@
 *,
 body {
   font-family: "Exo 2", sans-serif;
+  
 }
 
 .label-captura {
@@ -111,7 +112,7 @@ body {
 /* pagina graficos */
 
 .dash-header {
-  background-color: #212124;
+  background-color: #834cc9;
 }
 
 .dash {
@@ -119,7 +120,7 @@ body {
   position: relative;
   top: 0;
   left: 20%;
-  background-color: #161618;
+  background-color: white;
   height: 100vh;
   overflow: auto;
 }
@@ -132,24 +133,24 @@ body {
   margin-top: 30px;
 }
 
-.perigo-frio {
-  background-color: #5c6bc0;
-}
-
 .perigo-quente {
-  background-color: #ff7043;
-}
-
-.alerta-frio {
-  background-color: #42a5f5;
+  background-color: green;
 }
 
 .alerta-quente {
-  background-color: #ffee58;
+  background-color: lightgreen;
 }
 
 .ideal {
-  background-color: #9ccc65;
+  background-color: yellow;
+}
+
+.alerta-frio {
+  background-color: orange;
+}
+
+.perigo-frio {
+  background-color: red;
 }
 
 .item-regua {
@@ -163,11 +164,40 @@ body {
 .cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  height: 450px;
+  justify-content:space-around;
+  height: 900px;
   width: 100%;
   align-items: center;
   color: white;
+  background-image: url('../assets/imgs/fundoHome.png');
+  background-size: cover;
+}
+
+.video{
+  background-color: #834cc9;
+  border-radius: 10px;
+  align-items: center;
+  height: 390px;
+  width: 520px;
+  transition-duration: 0.8s;
+  padding: 5px;
+}
+
+.video:hover{
+  transform: scale(1.11);
+}
+
+.infoSessao{
+  margin: 0 ;
+  font-size: small;
+  width: 90%;
+  margin-left: 20px;
+}
+
+.tituloSessao{
+  margin-bottom: 5px;
+  font-size: medium;
+  text-align: center;
 }
 
 .card {

@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>AquaTech | Cadastro</title>
+  <title>LotusTech | Cadastro</title>
 
   <script src="./js/sessao.js"></script>
 
-  <link rel="icon" href="/Users/marce/OneDrive/Documentos/LotusTech/Algoritmo/site/public/assets/imgs/Logo.svg" />
+  <link rel="icon" href="./assets/imgs/Logo.svg" />
   <link rel="stylesheet" href="./css/estilo.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
@@ -18,7 +18,7 @@
     rel="stylesheet" />
 </head>
 
-<body onload="listar()">
+<body>
   <!--header inicio-->
   <div class="header">
     <div class="container">
@@ -74,6 +74,10 @@
         <div id="div_aguardar" class="loading-div">
           <img src="./assets/circle-loading.gif" id="loading-gif" />
         </div>
+        <div>
+          Já tem um perfil?
+          <a href="./login.html">Entrar
+        </div>
 
         <div id="div_erros_login"></div>
       </div>
@@ -103,16 +107,16 @@
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
     var possui_especial =
-            senha.indexOf('#') < 0 ||
-            senha.indexOf('@') < 0 ||
-            senha.indexOf('!') < 0 ||
-            senha.indexOf('%') < 0 ||
-            senha.indexOf('?') < 0 ||
-            senha.indexOf('-') < 0 ||
-            senha.indexOf('+') < 0 ||
-            senha.indexOf('*') < 0 ||
-            senha.indexOf('$') < 0 ||
-            senha.indexOf('_') < 0;
+            senhaVar.indexOf('#') >= 0 ||
+            senhaVar.indexOf('@') >= 0 ||
+            senhaVar.indexOf('!') >= 0 ||
+            senhaVar.indexOf('%') >= 0 ||
+            senhaVar.indexOf('?') >= 0 ||
+            senhaVar.indexOf('-') >= 0 ||
+            senhaVar.indexOf('+') >= 0 ||
+            senhaVar.indexOf('*') >= 0 ||
+            senhaVar.indexOf('$') >= 0 ||
+            senhaVar.indexOf('_') >= 0;
 
     if (
       nomeVar == "" ||
@@ -120,10 +124,7 @@
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "Os campos não podem estar em branco";
-
+      alert("Os campos não podem estar em branco");
       finalizarAguardar();
       return false;
     } else {
@@ -131,10 +132,26 @@
     }
 
     //adicional para o as validações da LotusTech
+    if ((emailVar.indexOf('@') < 0) && (emailVar.endsWith('.com') || emailVar.endsWith('.br') || emailVar.endsWith('.school')))
+        {
+      alert("Email inválido!");
+          
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
     if (senhaVar.length <8) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "Sua senha deve ter no mínimo 8 dígitos!";
+      alert("Sua senha deve ter no mínimo 8 dígitos!");
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    if (!possui_especial) {
+      alert("Sua senha deve ter no mínimo 1 caractere especial!");
 
       finalizarAguardar();
       return false;
@@ -142,10 +159,8 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    if (possui_especial) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "Sua senha deve ter no mínimo 1 caractere especial!";
+    if (senhaVar != confirmacaoSenhaVar) {
+      alert("As senhas digitadas não coincidem");
 
       finalizarAguardar();
       return false;
@@ -153,16 +168,7 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    if (confirmacaoSenhaVar != senhaVar) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "A senha e a confirmação não coincidem!";
 
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -176,7 +182,6 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        empresaServer: empresaVar
       }),
     })
       .then(function (resposta) {

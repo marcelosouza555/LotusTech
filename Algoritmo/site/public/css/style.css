@@ -254,8 +254,8 @@ input {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border-right: 3px solid #32b9cd;
-  background-color: #212124;
+  border-right: 3px solid white;
+  background-color: #834cc9;
   /* border: 3px solid pink; */
 }
 
@@ -270,7 +270,7 @@ input {
 }
 
 .header-left h1 {
-  color: #32b9cd;
+  color: white;
 }
 
 .hello {
@@ -280,7 +280,7 @@ input {
 }
 
 .hello h3 {
-  color: #e3b062;
+  color: white;
   font-weight: 300;
   font-size: 1.2rem;
 }
