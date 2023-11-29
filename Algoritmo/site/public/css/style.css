@@ -235,7 +235,7 @@ input {
 
 .janela {
   display: flex;
-  width: 100vw;
+  width: 100%
 }
 
 .header-left a {

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/dashboards.css">
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -64,36 +65,139 @@
         <div class="dash">
             <div id="alerta">
             </div>
+            <div class="regua">
+                <h1>Rastreamento emocional</h1>
+            </div>
 
             <div class="regua">
-                <div class="item-regua perigo-frio">
-                    <h4>Perigo</h4>
-                    <h2>&lt;=5°C</h2>
-                    <p class="emoji">&#128513;</p>
+
+                <div class="conjunto_btn">
+
+                    <div class="item-regua superFeliz">
+                        <button class="btn_emocional" onclick="superFeliz()"><img style="width: 60px; height: 50px;"
+                                src="../assets/imgs/VeryHappy.png" alt=""></button>
+                    </div>
+
+                    <div class="item-regua feliz">
+                        <button class="btn_emocional" onclick="feliz()"><img style="width: 60px; height: 50px;"
+                                src="../assets/imgs/happy.png" alt=""></button>
+                    </div>
+
+                    <div class="item-regua neutro">
+                        <button class="btn_emocional" onclick="neutro()"><img style="width: 60px; height: 50px;"
+                                src="../assets/imgs/Neutro.png" alt=""></button>
+                    </div>
+    
+                    <div class="item-regua triste">
+                        <button class="btn_emocional" onclick="triste()"><img style="width: 60px; height: 50px;"
+                                src="../assets/imgs/sad.png" alt=""></button>
+                    </div>
+    
+                    <div class="item-regua superTriste">
+                        <button class="btn_emocional" onclick="superTriste()"><img style="width: 60px; height: 50px;"
+                                src="../assets/imgs/verySad.png" alt=""></button>
+                    </div>
                 </div>
-                <div class="item-regua alerta-frio">
-                    <h4>Alerta</h4>
-                    <h2>&lt;=10°C</h2>
-                </div>
-                <div class="item-regua ideal">
-                    <h4>Ideal</h4>
-                    <h2>20°C</h2>
-                </div>
-                <div class="item-regua alerta-quente">
-                    <h4>Alerta</h4>
-                    <h2>&gt;=22°C</h2>
-                </div>
-                <div class="item-regua perigo-quente">
-                    <button> <img src="../assets/icon/super feliz.svg" alt=""> </button>
+                
+
+                <!-- Gráfico -->
+                <div class="dashdiv">
+                    <canvas id="myChart"></canvas>
                 </div>
 
-            <div class="btns-dash" id="btnAquario">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+                <script>
+
+                    var data = {
+                        labels: [1, 5, 10, 15, 20, 25, 30],
+                        datasets: [{
+                            label: 'Emoção',
+                            data: [1, 2, 4, 3, 2, 4, 5],
+                            borderColor: 'rgba(255, 255, 255, 1)',
+                            borderWidth: 2,
+                            pointRadius: 6,
+                            pointBackgroundColor: 'rgba(255, 255, 255, 1)',
+                            pointBorderColor: 'rgba(255, 255, 255, 1)',
+                            pointHoverRadius: 8,
+                        }]
+                    };
+
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'line',
+                        data: data,
+                        options: {
+                            scales: {
+                                y: {
+                                    type: 'linear',
+                                    position: 'left',
+                                    grid: {
+                                        display: false
+                                    },
+                                    max: 5,
+                                    stepSize: 1,
+                                    ticks: {
+                                        callback: function (value) {
+                                            switch (value) {
+                                                case 1:
+                                                    return 'Super Triste';
+                                                case 2:
+                                                    return 'Triste';
+                                                case 3:
+                                                    return 'Neutro';
+                                                case 4:
+                                                    return 'Feliz';
+                                                case 5:
+                                                    return 'Super Feliz';
+                                            }
+                                        }
+                                        
+                                    }
+                                },
+                                x: {
+                                    type: 'linear',
+                                    position: 'bottom',
+                                    grid: {
+                                        display: false
+                                    },
+                                    min: 1,
+                                    max: 30,
+                                    stepSize: 1,
+                                    ticks: {
+                                        callback: function (value) {
+                                            return value.toString();
+                                        }
+                                    }
+                                }
+                            },
+
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    labels: {
+                                        color: 'rgb (0,0,0)'
+                                    }
+                                }
+                            },
+                            
+                        }
+                    });
+                </script>
             </div>
-            <div id="graficos">
+            <div class="range">
+    
+                <div class="sliderValue">
+                    <span>50</span>
+                </div>
+    
+                <div class="indicator">
+                    <div class="value left">0</div>
+                    <input type="range" min="0" max="100" value="10" steps="1">
+                    <div class="value right">100</div>
+                </div>
+    
             </div>
         </div>
-    </div>
+
 
 
 </body>

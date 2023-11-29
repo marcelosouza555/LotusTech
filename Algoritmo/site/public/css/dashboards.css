@@ -22,6 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
 }
 
 .dash-right .avisos .container .div-form {
@@ -127,38 +128,128 @@ body {
 
 .regua {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
   width: 100%;
-  margin-top: 30px;
+
 }
 
-.perigo-quente {
+.superFeliz {
   background-color: green;
 }
 
-.alerta-quente {
+.feliz {
   background-color: lightgreen;
 }
 
-.ideal {
+.neutro {
   background-color: yellow;
 }
 
-.alerta-frio {
+.triste {
   background-color: orange;
 }
 
-.perigo-frio {
+.superTriste {
   background-color: red;
 }
 
+.conjunto_btn{
+  width: 10%
+}
+
 .item-regua {
-  padding: 5px;
-  width: 15%;
-  margin: 5px;
+  margin-right: 10%;
+  padding: 19%;
   text-align: center;
-  padding-top: 15px;
+ 
+}
+
+.btn_emocional{
+  background-color: #824cc900;
+  border: none;
+}
+
+#myChart{
+  background: rgb(255,0,0);
+  background: linear-gradient(0deg, rgba(255,0,0,1) 0%, rgba(255,165,0,1) 25%, rgba(255,255,0,1) 50%, rgba(144,238,144,1) 75%, rgba(0,128,0,1) 100%);
+}
+
+.dashdiv{
+  width: 70%;
+}
+
+.range{
+  height: 80px;
+  width: 380px;
+  background: gray;
+  border-radius: 10px;
+  padding: 0 65px 0 45px;
+}
+
+.range .sliderValue{
+  position: relative;
+  width: 100%;
+}
+
+.range .sliderValue span{
+  position: absolute;
+  height: 45px;
+  width: 45px;
+  color: #FFF;
+  font-weight: 500;
+  top: -40px;
+  transform: translateX(-50%);
+  line-height: 55px;
+  z-index: 2;
+}
+
+.range .sliderValue span:after{
+  position: absolute;
+  content: "" ;
+  height: 45px;
+  width: 45px;
+  background: red;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  z-index: -1;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50% ;
+}
+
+.range .indicator{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.range .indicator .value{
+  position: absolute;
+  font-size: 18px;
+  font-weight: 600;
+  color: #664AFF
+}
+
+.range .indicator .value.left{
+  left: -22px;
+}
+
+.range .indicator .value.left{
+  right: -43px;
+}
+
+.range .indicator input{
+  -webkit-appearance: none;
+  height: 3px;
+  width: 100%;
+  background: #DDD;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+
 }
 
 .cards {
@@ -169,35 +260,54 @@ body {
   width: 100%;
   align-items: center;
   color: white;
-  background-image: url('../assets/imgs/fundoHome.png');
-  background-size: cover;
-}
-
-.video{
-  background-color: #834cc9;
-  border-radius: 10px;
-  align-items: center;
-  height: 390px;
-  width: 520px;
-  transition-duration: 0.8s;
-  padding: 5px;
-}
-
-.video:hover{
-  transform: scale(1.11);
 }
 
 .infoSessao{
-  margin: 0 ;
-  font-size: small;
-  width: 90%;
-  margin-left: 20px;
+  border-radius: 50px;
+  background-color: #834cc9;
+  width: 100%;
+  margin: 0.5%;
+}
+
+html ::-webkit-scrollbar {
+  width: 10px;
+}
+html ::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background: rgba(166, 166, 166, 0.64);
+}
+html ::-webkit-scrollbar-track {
+  background: #d9d9d900;
 }
 
 .tituloSessao{
   margin-bottom: 5px;
-  font-size: medium;
+  font-size: large;
   text-align: center;
+}
+
+.linha{
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  width: 100%;
+  overflow-x: scroll;
+  background-color: #824cc975;
+  margin-bottom: 2%;
+}
+
+.video{  
+  border-radius: 10px;
+  align-items: center;
+  height: 292px;
+  width: 520px;
+  transition-duration: 0.8s;
+  padding: 5px;
+  margin: 5px;
+}
+
+.video:hover{
+  transform: scale(0.95);
 }
 
 .card {

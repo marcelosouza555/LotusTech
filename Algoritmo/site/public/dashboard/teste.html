@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle Deslizante de Estresse</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    #sliderContainer {
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    #stressLevel {
+      width: 100%;
+    }
+
+    #result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Controle Deslizante de Estresse</h1>
+
+  <div id="sliderContainer">
+    <label for="stressLevel">Nível de Estresse:</label>
+    <input type="range" id="stressLevel" name="stressLevel" min="0" max="100" value="50" oninput="updateResult()">
+  </div>
+
+  <div id="result">
+    <p>Porcentagem de Estresse: <span id="stressPercentage">50%</span></p>
+  </div>
+
+  <script>
+    function updateResult() {
+      var slider = document.getElementById("stressLevel");
+      var result = document.getElementById("stressPercentage");
+      result.textContent = slider.value + "%";
+    }
+  </script>
+
+</body>
+</html>
