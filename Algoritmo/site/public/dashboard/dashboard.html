@@ -74,31 +74,31 @@
                 <div class="conjunto_btn">
 
                     <div class="item-regua superFeliz">
-                        <button class="btn_emocional" onclick="superFeliz()"><img style="width: 60px; height: 50px;"
-                                src="../assets/imgs/VeryHappy.png" alt=""></button>
+                        <button class="btn_emocional" onclick="plotarGraficoMarcelo(5)"><img
+                                style="width: 60px; height: 50px;" src="../assets/imgs/VeryHappy.png" alt=""></button>
                     </div>
 
                     <div class="item-regua feliz">
-                        <button class="btn_emocional" onclick="feliz()"><img style="width: 60px; height: 50px;"
-                                src="../assets/imgs/happy.png" alt=""></button>
+                        <button class="btn_emocional" onclick="plotarGraficoMarcelo(4)"><img
+                                style="width: 60px; height: 50px;" src="../assets/imgs/happy.png" alt=""></button>
                     </div>
 
                     <div class="item-regua neutro">
-                        <button class="btn_emocional" onclick="neutro()"><img style="width: 60px; height: 50px;"
-                                src="../assets/imgs/Neutro.png" alt=""></button>
+                        <button class="btn_emocional" onclick="plotarGraficoMarcelo(3)"><img
+                                style="width: 60px; height: 50px;" src="../assets/imgs/Neutro.png" alt=""></button>
                     </div>
-    
+
                     <div class="item-regua triste">
-                        <button class="btn_emocional" onclick="triste()"><img style="width: 60px; height: 50px;"
-                                src="../assets/imgs/sad.png" alt=""></button>
+                        <button class="btn_emocional" onclick="plotarGraficoMarcelo(2)"><img
+                                style="width: 60px; height: 50px;" src="../assets/imgs/sad.png" alt=""></button>
                     </div>
-    
+
                     <div class="item-regua superTriste">
-                        <button class="btn_emocional" onclick="superTriste()"><img style="width: 60px; height: 50px;"
-                                src="../assets/imgs/verySad.png" alt=""></button>
+                        <button class="btn_emocional" onclick="plotarGraficoMarcelo(1)"><img
+                                style="width: 60px; height: 50px;" src="../assets/imgs/verySad.png" alt=""></button>
                     </div>
                 </div>
-                
+
 
                 <!-- Gráfico -->
                 <div class="dashdiv">
@@ -107,11 +107,13 @@
 
                 <script>
 
+                    var gravarValor = [];
+
                     var data = {
-                        labels: [1, 5, 10, 15, 20, 25, 30],
+                        labels: [1, 5, 10, 15, 20, 25, 30,35,40,50,55,60,65,70],
                         datasets: [{
                             label: 'Emoção',
-                            data: [1, 2, 4, 3, 2, 4, 5],
+                            data: [1],
                             borderColor: 'rgba(255, 255, 255, 1)',
                             borderWidth: 2,
                             pointRadius: 6,
@@ -122,6 +124,7 @@
                     };
 
                     var ctx = document.getElementById('myChart').getContext('2d');
+
                     var myChart = new Chart(ctx, {
                         type: 'line',
                         data: data,
@@ -150,7 +153,7 @@
                                                     return 'Super Feliz';
                                             }
                                         }
-                                        
+
                                     }
                                 },
                                 x: {
@@ -174,31 +177,41 @@
                                 legend: {
                                     display: true,
                                     labels: {
-                                        color: 'rgb (0,0,0)'
                                     }
                                 }
                             },
-                            
+
                         }
                     });
+
+                    function plotarGraficoMarcelo(valor) {
+                        gravarValor = data.datasets[0].data;
+                        gravarValor.push(valor)
+                        myChart.update();
+                    }
+
                 </script>
             </div>
-            <div class="range">
-    
-                <div class="sliderValue">
-                    <span>50</span>
-                </div>
-    
-                <div class="indicator">
-                    <div class="value left">0</div>
-                    <input type="range" min="0" max="100" value="10" steps="1">
-                    <div class="value right">100</div>
-                </div>
-    
+
+            <div class="mensagem_estresse">
+                <div>Registre com precisão a porcentagem do seu dia em que experimentou estresse para uma avaliação mais
+                    detalhada e personalizada do seu bem-estar</div>
             </div>
-        </div>
+            Valor inicial: <div id="opa"></div>
+            <div class="slideContainer">
+                <span id="min">0</span>
+                <input oninput="teste()" type="range" min="0" max="100" value="50" class="slider" id="myRange">
+                <span id="max">100</span>
+            </div>
 
+            <script>
+                function teste() {
+                    var valorDinamico = myRange.value;
+                    console.log("valorDinamico", valorDinamico)
+                    opa.innerHTML = valorDinamico;
+                }
 
+            </script>
 
 </body>
 

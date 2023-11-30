@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,41 +10,35 @@
       text-align: center;
       margin: 50px;
     }
-
-    #sliderContainer {
-      width: 50%;
-      margin: 0 auto;
+    label {
+      font-size: 1.2em;
+      display: block;
+      margin-bottom: 10px;
     }
-
-    #stressLevel {
-      width: 100%;
-    }
-
-    #result {
-      margin-top: 20px;
+    input {
+      width: 80%;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
+  <h2>Controle Deslizante de Estresse</h2>
 
-  <h1>Controle Deslizante de Estresse</h1>
-
-  <div id="sliderContainer">
-    <label for="stressLevel">Nível de Estresse:</label>
-    <input type="range" id="stressLevel" name="stressLevel" min="0" max="100" value="50" oninput="updateResult()">
-  </div>
-
-  <div id="result">
-    <p>Porcentagem de Estresse: <span id="stressPercentage">50%</span></p>
-  </div>
+  <form>
+    <label for="estresseRange">Quanto do dia você esteve estressado?</label>
+    <input type="range" id="estresseRange" name="estresseRange" min="0" max="100" step="1" value="50">
+    <br>
+    <output for="estresseRange" id="estresseValue">50%</output>
+  </form>
 
   <script>
-    function updateResult() {
-      var slider = document.getElementById("stressLevel");
-      var result = document.getElementById("stressPercentage");
-      result.textContent = slider.value + "%";
-    }
-  </script>
+    // Atualiza o valor exibido conforme o controle deslizante é ajustado
+    var estresseRange = document.getElementById('estresseRange');
+    var estresseValue = document.getElementById('estresseValue');
 
+    estresseRange.addEventListener('input', function() {
+      estresseValue.textContent = estresseRange.value + '%';
+    });
+  </script>
 </body>
 </html>
