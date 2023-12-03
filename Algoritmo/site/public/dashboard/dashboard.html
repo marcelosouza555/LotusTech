@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Dashboards</title>
+    <title>LotusTech | Rastreamento emocional</title>
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboards.css">
@@ -110,7 +110,11 @@
                     var gravarValor = [];
 
                     var data = {
-                        labels: [1, 5, 10, 15, 20, 25, 30,35,40,50,55,60,65,70],
+                        labels: [
+                            1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                            11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                            21, 22, 23, 24, 25, 26, 27, 28, 29, 30
+                        ],
                         datasets: [{
                             label: 'Emoção',
                             data: [1],
@@ -197,7 +201,7 @@
                 <div>Registre com precisão a porcentagem do seu dia em que experimentou estresse para uma avaliação mais
                     detalhada e personalizada do seu bem-estar</div>
             </div>
-            Valor inicial: <div id="opa"></div>
+            Valor inicial: <div id="stress"></div>
             <div class="slideContainer">
                 <span id="min">0</span>
                 <input oninput="teste()" type="range" min="0" max="100" value="50" class="slider" id="myRange">
@@ -208,7 +212,7 @@
                 function teste() {
                     var valorDinamico = myRange.value;
                     console.log("valorDinamico", valorDinamico)
-                    opa.innerHTML = valorDinamico;
+                    stress.innerHTML = valorDinamico;
                 }
 
             </script>
