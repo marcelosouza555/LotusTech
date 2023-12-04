@@ -18,13 +18,14 @@ CREATE TABLE usuario (
     dtCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE Endereço (
-	idEndereço INT PRIMARY KEY AUTO_INCREMENT,
-    cep CHAR(8),
-	complemento VARCHAR(50),
-	numero int,
+CREATE TABLE Feedback (
+	idFeedback INT auto_increment,
+    titulo VARCHAR(45),
+	descricao VARCHAR(300),
+    fkUsuario INT,
     CONSTRAINT fkUsuario FOREIGN KEY (fkUsuario)
-		REFERENCES usuario(idUsuario)
+		REFERENCES usuario(idUsuario),
+	primary key(idFeedback, fkUsuario)
 )auto_increment= 100;
 
 CREATE TABLE Rastreamento(
@@ -32,30 +33,15 @@ CREATE TABLE Rastreamento(
 	dtHora TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	estadoEmocional INT,
 	nivelEstresse INT,
-    progresso INT,
     fkUsuario INT,
     FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario)
 )auto_increment= 200;
 
-create table Gamificacao (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	idGamificacao INT PRIMARY KEY AUTO_INCREMENT,
-	pontos INT,
-	nivel INT,
-	FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario)
-)auto_increment= 300;
-
 /* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 
-create table infoMeditacao (
-	idInfo INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR (100),
-	descricao VARCHAR(300),
-	beneficios VARCHAR(200),
-	tecnicas VARCHAR(200),
-    fkUsuario INT,
-	FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario)
-)auto_increment= 400;
+SELECT * FROM usuario;
+SELECT * FROM rastreamento;
 
-insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
+DELETE FROM usuario WHERE idUsuario= 36;
+
+

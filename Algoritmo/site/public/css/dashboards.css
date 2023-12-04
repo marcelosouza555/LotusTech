@@ -180,26 +180,60 @@ body {
 }
 
 .mensagem_estresse{
-  margin-top: 5%;
+  margin-top: 3%;
   width: 100%;
   height: 100px;
 }
 
 .mensagem_estresse div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: 5px solid #834cc9;
+  background-color: #824cc917;
+  height: 90px;
   border-radius: 20px;
   font-size: 25px;
   margin: 0 25px;
+  padding-top: 20px;
   padding-left: 20px;
   text-align: center;
 }
 
+#myRange{
+  margin: 5px;
+}
+
+span.min{
+  color: green;
+  font-weight: 600;
+  font-size: xx-large;
+}
+
+span.max{
+  color: red;
+  font-weight: 600;
+  font-size: xx-large;
+}
+
+div#stress{
+  color: #834cc9;
+  margin-left: 48.5%;
+  font-weight: 600;
+  font-size: xx-large;
+}
+
 .slideContainer{
-  width: 100%;
+  margin-left: 50px;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .slider{
   -webkit-appearance: none;
+  border: none;
   appearance: none;
   width: 90%;
   margin: 0 75px;

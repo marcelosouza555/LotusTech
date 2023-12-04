@@ -132,10 +132,19 @@
     }
 
     //adicional para o as validações da LotusTech
-    if ((emailVar.indexOf('@') < 0) && (emailVar.endsWith('.com') || emailVar.endsWith('.br') || emailVar.endsWith('.school')))
+    if (emailVar.indexOf('@') < 0)
         {
       alert("Email inválido!");
           
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    if(!emailVar.endsWith('.com') || emailVar.endsWith('.br') || emailVar.endsWith('.school')){
+      alert("Email inválido")
+
       finalizarAguardar();
       return false;
     } else {
