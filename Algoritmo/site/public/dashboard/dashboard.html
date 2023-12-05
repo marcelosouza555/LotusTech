@@ -192,7 +192,7 @@
                         gravarValor = data.datasets[0].data;
                         gravarValor.push(valor)
                         myChart.update();
-                        function gravarValor(){
+                        function gravarValorBD(){
                             fetch("/dashboard/dashboard", {
                             method: "POST",
                             headers: {
