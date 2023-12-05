@@ -62,7 +62,33 @@
                 </div>
                 <div class="container">
                     <h1>Sobre </h1>
+                    <div class="sobre_site" id="div_sobre">
+                        
+                            <span>Transforme Sua Jornada de Meditação</span> <br>
+
+                            Bem-vindo ao nosso espaço dedicado à meditação, onde buscamos proporcionar uma experiência transformadora para todos os praticantes, independentemente do nível de experiência. Nosso site foi criado com a missão de ajudar você a aprimorar sua prática de meditação, oferecendo recursos inovadores e personalizados para promover o bem-estar mental. <br><br>
+
+                            <span>Recursos Exclusivos para Aprimorar Sua Prática:</span> <br>
+
+                            <span>Sessões de Meditação Guiada:</span> <br>
+                            Explore uma variedade de sessões de meditação guiada projetadas para atender às suas necessidades específicas. Seja para relaxamento, concentração ou gestão do estresse, temos uma variedade de opções para você escolher. <br><br>
+
+                            <span>Gráfico de Rastreamento Emocional:</span> <br>
+                            Acompanhe sua jornada emocional através de nosso gráfico interativo. Classifique suas emoções diárias em categorias que vão de "super feliz" a "super triste" e observe o progresso ao longo do tempo. <br><br>
+
+                            <span>Registro de Estresse Diário:</span> <br>
+                            Com nosso recurso exclusivo de registro de estresse, você pode inserir a porcentagem do seu dia que passou estressado. Isso permite uma compreensão mais profunda dos momentos que podem afetar seu bem-estar e identificar áreas para melhorias. <br><br>
+
+                            <span>Dê Sua Opinião: Seu Feedback é Importante!</span> <br>
+
+                            Valorizamos a sua experiência conosco e queremos tornar este espaço cada vez mais adequado às suas necessidades. Na seção de feedback abaixo, sinta-se à vontade para compartilhar suas sugestões, críticas construtivas ou qualquer outra observação que possa contribuir para aprimorar nosso site. Sua opinião é essencial para garantir que possamos continuar a oferecer uma plataforma valiosa para sua jornada de meditação. <br><br>
+
+                            Agradecemos por fazer parte da nossa comunidade de meditação. Juntos, podemos criar um ambiente que promova o equilíbrio, a serenidade e a paz interior. <br><br>
+                        
+                    </div>
+
                     <div class="div-form">
+                        <h2>Feedback</h2>
                         <form id="form_postagem" method="post" onsubmit="return publicar()">
                             <label>
                                 Título:
@@ -71,19 +97,24 @@
                             </label>
                             <br>
                             <label>
-                                Descrição (máximo de 250 caracteres):
+                                Descrição (máximo de 300 caracteres):
                                 <br>
                                 <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
                             </label>
                             <br>
-                            <button>Enviar</button>
+                            <button onclick="enviarFeedback()">Enviar</button>
                         </form>
                     </div>
-                    <h1>Mural de Avisos</h1>
-                    <div class="div-results">
-                        <div id="feed_container" class="feed-container">
-                        </div>
-                    </div>
+                    
+                    <div id="div_popUp"></div>
+                    <script>
+                        function enviarFeedback(){
+                            div_popUp.innerHTML += `Feedback enviado &star;`
+
+                            div_popUp.style.display= "flex"
+                        }
+                    </script>
+                    
                 </div>
             </div>
         </div>
